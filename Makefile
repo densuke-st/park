@@ -37,3 +37,6 @@ venv:
 
 install:
 	cd setup; ansible-playbook site.yml
+
+server:
+	bash ./run-server

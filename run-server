@@ -1,0 +1,8 @@
+#!/bin/bash
+[ ! -x /usr/bin/pyvenv ] && (sudo apt-get update; sudo apt-get install -y python3-venv)
+
+[ ! -d ~/venv ] && python3 -m venv ~/venv && source ~/venv/bin/activate && pip3 install -r requirements.txt
+type deactivate >&/dev/null
+[ $? == 0 ] && deactivate
+source ~/venv/bin/activate
+python3 park.py
