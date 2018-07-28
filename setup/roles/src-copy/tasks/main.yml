@@ -1,0 +1,19 @@
+---
+- name: update source
+  copy:
+    src: /home/densuke/park
+    dest: /home/0j02050/
+    owner: 0j02050
+  register: src
+- name: install modules
+  shell: make setup
+  args:
+    chdir: /home/0j02050/park
+  become_user: 0j02050
+  when: src is changed
+- name: append venv to .bashrc
+  lineinfile:
+    path: /home/0j02050/.bashrc
+    line: "VIRTUAL_ENV_DISABLE_PROMPT=1; source ~/venv/bin/activate"
+    
+

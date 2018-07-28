@@ -1,0 +1,13 @@
+---
+- name: generate locale
+  locale_gen:
+    name: ja_JP.UTF-8
+  register: locale
+
+- name: set default locale
+  command: localectl set-locale LANG=ja_JP.UTF-8
+  when: locale is changed
+
+- name: set timezone
+  command: timedatectl set-timezone Asia/Tokyo
+  when: locale is changed

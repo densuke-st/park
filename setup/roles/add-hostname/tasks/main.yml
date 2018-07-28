@@ -1,0 +1,7 @@
+---
+- name: add hostname to hosts
+  replace:
+    dest: /etc/hosts
+    regexp: "localhost$"
+    replace: "localhost: {{ ansible_hostname }}.local {{ ansible_hostname }}"
+
