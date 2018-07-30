@@ -29,8 +29,13 @@ repl: sync
 	    -i ssh/taiken -t \
 	    $(USER)@$(HOST) 'bash -c "cd park && source $$HOME/venv/bin/activate; python3 -i init.py"'
 	    
-setup: venv
-	bash -c 'source ~/venv/bin/activate; pip3 install -r requirements.txt'
+setup:
+	@SSH_AUTH_SOCK= \
+	sshpass -p $(PASS) \
+	ssh -o UserKnownHostsFile=/dev/null \
+            -o StrictHostKeyChecking=no \
+	    -i ssh/taiken -t \
+	$(USER)@$(HOST)	bash -c '! test -d $$HOME/venv  && python3 -m venv $$HOME/venv; source ~/venv/bin/activate; cd park; pip3 install -r requirements.txt'
 
 venv:
 	-[ ! -d $$HOME/venv ] && python3 -m venv $$HOME/venv
@@ -38,5 +43,5 @@ venv:
 install:
 	cd setup; ansible-playbook site.yml
 
-server:
+server: 
 	bash ./run-server
