@@ -19,6 +19,4 @@ sleep(1)
 print("消します")
 # (4)  LEDにoffを送り、電気信号を止める
 led.off()
-# 後始末
-GPIO.cleanup()
 
