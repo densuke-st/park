@@ -2,6 +2,7 @@ ID=01
 
 USER=0j02050
 PASS=2pMv4pid
+RUN=watch
 
 HOST=taiken-$(ID).local
 
@@ -19,7 +20,7 @@ run: sync
 	ssh -o UserKnownHostsFile=/dev/null \
             -o StrictHostKeyChecking=no \
 	    -i ssh/taiken -t \
-	    $(USER)@$(HOST) 'bash -xc "cd park && source $$HOME/venv/bin/activate; python3  watch.py"'
+	    $(USER)@$(HOST) 'bash -xc "cd park && source $$HOME/venv/bin/activate; python3  $(RUN).py"'
 	    
 repl: sync
 	@SSH_AUTH_SOCK= \
@@ -45,3 +46,10 @@ install:
 
 server: 
 	bash ./run-server
+
+led-1: 
+	make run RUN=led-1
+
+led-2: 
+	make run RUN=led-2
+
