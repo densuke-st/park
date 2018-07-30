@@ -53,3 +53,5 @@ led-1:
 led-2: 
 	make run RUN=led-2
 
+dist:
+	make run RUN=dist
