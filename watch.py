@@ -8,8 +8,8 @@ from RPi import GPIO
 
 ### 書き換えの必要な部分
 led_port = 26 # LEDとつながってるポート
-us_trig_port = 23 # 距離センサー トリガーポート(trig)
-us_echo_port = 24 # 距離センサー エコーポート(echo)
+us_trig_port = 24 # 距離センサー トリガーポート(trig)
+us_echo_port = 23 # 距離センサー エコーポート(echo)
 
 park_no = 1  # 駐車場番号(パネルの番号)
 ###

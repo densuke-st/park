@@ -10,8 +10,8 @@ atexit.register(GPIO.cleanup)
 
 ### 書き換えの必要な部分(ポート番号を書き換えてください)
 led_port     = 26 # LEDとつながってるポート
-us_trig_port = 23 # 距離センサー トリガーポート(trig)
-us_echo_port = 24 # 距離センサー エコーポート(echo)
+us_trig_port = 24 # 距離センサー トリガーポート(trig)
+us_echo_port = 23 # 距離センサー エコーポート(echo)
 ###
 
 # 上記設定に合わせてLEDとUSの準備をする
