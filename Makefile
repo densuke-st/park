@@ -1,4 +1,4 @@
-ID=01
+ID=01  # Pi3の番号(01〜30)
 
 USER=0j02050
 PASS=2pMv4pid
