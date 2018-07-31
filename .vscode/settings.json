@@ -1,4 +1,13 @@
 {
     "python.pythonPath": "/home/densuke/.venv/v3/bin/python3",
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/setup": true,
+        "**/ssh": true
+    }
 }
