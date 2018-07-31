@@ -15,20 +15,20 @@ sync:
 	@sshpass -p $(PASS) rsync -auze ssh ~/park $(HOST):
 
 run: sync
-	@SSH_AUTH_SOCK= \
+	-@SSH_AUTH_SOCK= \
 	sshpass -p $(PASS) \
 	ssh -o UserKnownHostsFile=/dev/null \
             -o StrictHostKeyChecking=no \
 	    -i ssh/taiken -t \
-	    $(USER)@$(HOST) 'bash -xc "cd park && source $$HOME/venv/bin/activate; python3  $(RUN).py"'
+	    $(USER)@$(HOST) 'bash -xc "cd park && source $$HOME/venv/bin/activate; python3  $(RUN).py; exit 0"'
 	    
 repl: sync
-	@SSH_AUTH_SOCK= \
+	-@SSH_AUTH_SOCK= \
 	sshpass -p $(PASS) \
 	ssh -o UserKnownHostsFile=/dev/null \
             -o StrictHostKeyChecking=no \
 	    -i ssh/taiken -t \
-	    $(USER)@$(HOST) 'bash -c "cd park && source $$HOME/venv/bin/activate; python3 -i init.py"'
+	    $(USER)@$(HOST) 'bash -c "cd park && source $$HOME/venv/bin/activate; python3 -i init.py; exit 0"'
 	    
 setup:
 	@SSH_AUTH_SOCK= \
