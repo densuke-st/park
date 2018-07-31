@@ -1,12 +1,14 @@
 ---
 - name: update source
-  copy:
-    src: /home/densuke/park
-    dest: /home/0j02050/
-    owner: 0j02050
+  git:
+    repo: 'https://github.com/densuke-st/park.git'
+    dest: /home/0j02050/park
+  become_user: 0j02050  
   register: src
 - name: install modules
-  shell: make setup
+  shell: |
+     source ~/venv/bin/activate
+     pip3 install -r requirements.txt
   args:
     chdir: /home/0j02050/park
   become_user: 0j02050
