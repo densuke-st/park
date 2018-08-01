@@ -1,14 +1,18 @@
 ---
+- name: install git
+  apt:
+    name: git
 - name: update source
   git:
-    repo: 'https://github.com/densuke-st/park.git'
+    repo: https://github.com/densuke-st/park.git
     dest: /home/0j02050/park
-  become_user: 0j02050  
+  become_user: 0j02050
   register: src
 - name: install modules
   shell: |
-     source ~/venv/bin/activate
-     pip3 install -r requirements.txt
+    [ ! -d ~/venv ] && python3 -m venv ~/venv
+    source ~/venv/bin/activate
+    pip3 install -r requirements.txt
   args:
     chdir: /home/0j02050/park
   become_user: 0j02050
