@@ -36,12 +36,14 @@ setup:
 	@sleep 2
 	chmod 0700 ssh
 	chmod 0400 ssh/*
+	bash -c 'source ~/.venv/bin/activate; pip3 install -U pylint'
 	@SSH_AUTH_SOCK= \
 	sshpass -p $(PASS) \
 	ssh -o UserKnownHostsFile=/dev/null \
             -o StrictHostKeyChecking=no \
 	    -i ssh/taiken -t \
 	$(USER)@$(HOST)	bash -c '! test -d $$HOME/venv  && python3 -m venv $$HOME/venv; source ~/venv/bin/activate; cd park; pip3 install -r requirements.txt'
+	@echo "taiken-$(ID).localへの導通はOKです"
 
 venv:
 	-[ ! -d $$HOME/venv ] && python3 -m venv $$HOME/venv
