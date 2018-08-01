@@ -32,6 +32,8 @@ repl: sync
 	    $(USER)@$(HOST) 'bash -c "cd park && source $$HOME/venv/bin/activate; python3 -i init.py; exit 0"'
 	    
 setup:
+	@echo "導通チェックと設定を行っています"
+	@sleep 2
 	chmod 0700 ssh
 	chmod 0400 ssh/*
 	@SSH_AUTH_SOCK= \
