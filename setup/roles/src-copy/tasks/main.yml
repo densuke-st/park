@@ -6,6 +6,7 @@
   git:
     repo: https://github.com/densuke-st/park.git
     dest: /home/0j02050/park
+    force: True
   become_user: 0j02050
   register: src
 - name: install modules
