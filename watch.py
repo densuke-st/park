@@ -7,17 +7,16 @@ import json
 from RPi import GPIO
 
 ### 書き換えの必要な部分
-led_port = 26 # LEDとつながってるポート
-us_trig_port = 24 # 距離センサー トリガーポート(trig)
-us_echo_port = 23 # 距離センサー エコーポート(echo)
+led_port = 0 # LEDとつながってるポート
+us_trig_port = 0 # 距離センサー トリガーポート(trig)
+us_echo_port = 0 # 距離センサー エコーポート(echo)
 
-park_no = 1  # 駐車場番号(パネルの番号)
+park_no = 0  # 駐車場番号(パネルの番号)
 ###
 
 
 led = Led(led_port)
 us = US(us_trig_port,us_echo_port)
-
 
 import atexit
 atexit.register(GPIO.cleanup)
