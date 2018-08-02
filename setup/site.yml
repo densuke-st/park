@@ -7,7 +7,7 @@
   - src-copy
   - update
 
-- hosts: clients
+- hosts: room
   become: True
   roles:
   - src-update

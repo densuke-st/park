@@ -5,3 +5,12 @@
    force: True
    repo: https://github.com/densuke-st/park.git
    dest: /opt/taiken/park
+- name: add desktop entry
+  copy:
+   src: "体験: 確認シート.desktop"
+   dest: /opt/taiken/Desktop/
+   owner: taiken
+   group: taiken
+   mode: 0444
+
+

@@ -1,7 +1,13 @@
 [taiken]
 taiken-[01:29].local #ansible_user=0j02050
 
-[clients]
+[room]
 client0[01:46].nl.local
 teacher.nl.local
 
+[clients]
+client0[01:46].nl.local
+
+[all:children]
+taiken
+room
