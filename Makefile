@@ -62,3 +62,6 @@ led-2:
 
 dist:
 	make run RUN=dist
+
+watch:
+	make run RUN=watch
