@@ -1,0 +1,4 @@
+---
+- name: safe upgrade
+  apt:
+   upgrade: safe
