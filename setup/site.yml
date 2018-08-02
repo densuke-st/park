@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: taiken
   become: True
   roles:
   - add-hostname
@@ -6,3 +6,8 @@
   - python
   - src-copy
   - update
+
+- hosts: clients
+  become: True
+  roles:
+  - src-update

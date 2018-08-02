@@ -1,0 +1,7 @@
+---
+- name: update src
+  become_user: taiken
+  git:
+   force: True
+   repo: https://github.com/densuke-st/park.git
+   dest: /opt/taiken/park
